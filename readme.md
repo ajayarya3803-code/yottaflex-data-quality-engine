@@ -136,7 +136,7 @@ Validation rules are maintained separately from the Python implementation, allow
 ### Clone the repository
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone https://github.com/ajayarya3803-code/yottaflex-data-quality-engine.git
 cd yottaflex-data-quality
 ```
 
@@ -155,7 +155,7 @@ Activate it on Windows:
 ### Install dependencies
 
 ```bash
-pip install pandas duckdb pyyaml pyarrow pytest pytest-cov
+pip install -r requirements.txt
 ```
 
 ## 7. Running the Pipeline
