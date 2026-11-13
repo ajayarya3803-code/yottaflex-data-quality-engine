@@ -137,7 +137,7 @@ Validation rules are maintained separately from the Python implementation, allow
 
 ```bash
 git clone https://github.com/ajayarya3803-code/yottaflex-data-quality-engine.git
-cd yottaflex-data-quality
+cd yottaflex-data-quality-engine
 ```
 
 ### Create a virtual environment
