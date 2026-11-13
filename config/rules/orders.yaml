@@ -1,0 +1,90 @@
+
+dataset: orders
+
+rules:
+  - rule_id: ORD001
+    name: order_id_completeness
+    type: completeness
+    column: order_id
+    severity: critical
+
+  - rule_id: ORD002
+    name: order_id_uniqueness
+    type: uniqueness
+    column: order_id
+    severity: critical
+
+  - rule_id: ORD003
+    name: customer_referential_integrity
+    type: referential_integrity
+    column: customer_id
+    reference_dataset: customers
+    reference_column: customer_id
+    severity: high
+
+  - rule_id: ORD004
+    name: amount_range
+    type: range
+    column: amount
+    min: 0
+    min_inclusive: false
+    max: 100000
+    max_inclusive: true
+    severity: high
+
+  - rule_id: ORD005
+    name: source_freshness
+    type: freshness
+    column: source_extract_timestamp
+    max_age_hours: 24
+    severity: medium
+
+  - rule_id: ORD006
+    name: valid_order_status
+    type: custom
+    column: order_status
+    check: allowed_values
+    allowed_values:
+      - PLACED
+      - PROCESSING
+      - SHIPPED
+      - DELIVERED
+      - CANCELLED
+    severity: high
+
+  - rule_id: ORD007
+    name: cancellation_reason_required
+    type: custom
+    column: cancellation_reason
+    check: required_when
+    condition_column: order_status
+    condition_value: CANCELLED
+    severity: high
+
+  - rule_id: ORD008
+    name: valid_currency
+    type: custom
+    column: currency
+    check: allowed_values
+    allowed_values:
+      - INR
+      - USD
+    severity: medium
+
+  - rule_id: ORD009
+    name: amount_completeness
+    type: completeness
+    column: amount
+    severity: high
+
+  - rule_id: ORD010
+    name: order_timestamp_completeness
+    type: completeness
+    column: order_timestamp
+    severity: high
+
+  - rule_id: ORD011
+    name: source_extract_timestamp_completeness
+    type: completeness
+    column: source_extract_timestamp
+    severity: high

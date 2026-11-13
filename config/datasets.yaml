@@ -1,0 +1,61 @@
+
+datasets:
+  customers:
+    source_file: customers.csv
+    primary_key: customer_id
+    format: csv
+
+    columns:
+      customer_id:
+        type: string
+        nullable: false
+
+      customer_name:
+        type: string
+        nullable: false
+
+      email:
+        type: string
+        nullable: false
+
+      created_at:
+        type: timestamp
+        nullable: false
+
+  orders:
+    source_file: orders.csv
+    primary_key: order_id
+    format: csv
+
+    columns:
+      order_id:
+        type: string
+        nullable: false
+
+      customer_id:
+        type: string
+        nullable: false
+
+      amount:
+        type: decimal
+        nullable: false
+
+      currency:
+        type: string
+        nullable: false
+
+      order_status:
+        type: string
+        nullable: false
+
+      order_timestamp:
+        type: timestamp
+        nullable: false
+
+      cancellation_reason:
+        type: string
+        nullable: true
+
+      source_extract_timestamp:
+        type: timestamp
+        nullable: false

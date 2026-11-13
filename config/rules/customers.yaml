@@ -1,0 +1,40 @@
+
+dataset: customers
+
+rules:
+  - rule_id: CUS001
+    name: customer_id_completeness
+    type: completeness
+    column: customer_id
+    severity: critical
+
+  - rule_id: CUS002
+    name: customer_id_uniqueness
+    type: uniqueness
+    column: customer_id
+    severity: critical
+
+  - rule_id: CUS003
+    name: customer_name_completeness
+    type: completeness
+    column: customer_name
+    severity: high
+
+  - rule_id: CUS004
+    name: email_completeness
+    type: completeness
+    column: email
+    severity: high
+
+  - rule_id: CUS005
+    name: email_format
+    type: custom
+    column: email
+    check: email_format
+    severity: medium
+
+  - rule_id: CUS006
+    name: created_at_completeness
+    type: completeness
+    column: created_at
+    severity: high
